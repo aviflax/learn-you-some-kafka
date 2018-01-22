@@ -8,5 +8,5 @@ COPY Gemfile ./
 RUN bundle install
 
 WORKDIR lesson
-COPY *.rb ./
+COPY * ./
 ENTRYPOINT [ "ruby", "lesson.rb" ]
