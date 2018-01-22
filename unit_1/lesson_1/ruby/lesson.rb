@@ -17,7 +17,8 @@ module InteractiveLesson
   def self.do_fragment(fragment, is_last, bind)
     print_colorized fragment
     prompt 'execute the above code and see the results'
-    bind.eval fragment
+    result = bind.eval fragment
+    p result
     print "\n"
     prompt 'continue' unless is_last
   end
