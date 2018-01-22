@@ -14,10 +14,10 @@ module InteractiveLesson
     STDIN.gets
   end
 
-  def self.do_fragment(fragment, is_last)
+  def self.do_fragment(fragment, is_last, bind)
     print_colorized fragment
     prompt 'execute the above code and see the results'
-    eval fragment
+    bind.eval fragment
     print "\n"
     prompt 'continue' unless is_last
   end
@@ -30,7 +30,8 @@ module InteractiveLesson
 
   def self.start
     print "\n"
-    fragments.each { |path, is_last| do_fragment IO.read(path), is_last }
+    bind = binding
+    fragments.each { |path, is_last| do_fragment IO.read(path), is_last, bind }
     congrats = '🎉 🎉 🎉  Congratulations, you’ve finished the lesson! 💪 💪 💪'
     puts Rainbow(congrats).background(:silver).bright
   end
