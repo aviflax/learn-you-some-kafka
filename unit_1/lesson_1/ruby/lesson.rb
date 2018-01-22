@@ -23,7 +23,7 @@ module InteractiveLesson
   end
 
   def self.fragments
-    paths = Dir.glob 'fragment_*.rb'
+    paths = Dir.glob('fragment_*.rb').sort
     paths[0..-2].map { |path| [path, false] }
                 .push([paths[-1], true])
   end
