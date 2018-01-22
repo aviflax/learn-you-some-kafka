@@ -1,0 +1,20 @@
+AllCops:
+  TargetRubyVersion: 2.4
+
+Lint/UselessAssignment:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 16
+
+Metrics/LineLength:
+  Max: 60
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
