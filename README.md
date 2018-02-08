@@ -48,6 +48,7 @@ Each unit and lesson will be available for both Ruby and Clojure.
 
 1. Producing Strings
 1. Consuming Strings
+1. Consumer Groups
 1. Serialization and Deserialization
 
 #### Unit Two: Avro
