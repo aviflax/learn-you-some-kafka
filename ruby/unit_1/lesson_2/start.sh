@@ -2,6 +2,8 @@
 
 set -ex
 
+cp ../../lesson.rb ./
+
 ID=`docker build --quiet .`
 docker run -it --rm --network ruby_default $ID
 

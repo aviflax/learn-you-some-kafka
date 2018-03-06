@@ -24,4 +24,4 @@
 # To start the next lesson, run this in your
 # shell:
 #
-# cd ../../lesson_3/ruby && ./start.sh
+# cd ../lesson_3 && ./start.sh
