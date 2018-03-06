@@ -2,7 +2,7 @@
 
 set -ex
 
-cp ../../lesson.rb ./
+cp ../../lesson.rb ../../Dockerfile ./
 
 ID=`docker build --quiet .`
 docker run -it --rm --network ruby_default $ID
