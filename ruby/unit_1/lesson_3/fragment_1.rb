@@ -1,4 +1,4 @@
-# Unit 1, Lesson 2: Consumer Groups
+# Unit 1, Lesson 3: Consumer Groups
 
 # Before we get started, please note: this lesson requires
 # that the network started by lesson 1 still be up and
