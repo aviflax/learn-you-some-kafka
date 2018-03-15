@@ -12,8 +12,14 @@ records = []
 # topic accordingly.
 
 # Note: ruby-kafka’s API refers to Kafka records as
-# messages. I personally see this as an error, but it
-# shouldn’t get in our way too much.
+# messages. I personally see this as an error, as it’s more
+# accurate and useful to think of Kafka as a _streaming
+# platform_ rather than a messaging system. Kafka _can_ be
+# used as a messaging system, but it can also be used for
+# data storage, low-latency data transport, and low-latency
+# data processing.
+#
+# That said, this error shouldn’t get in our way too much.
 
 consume = lambda do
   client.each_message topic: 'strings' do |record|

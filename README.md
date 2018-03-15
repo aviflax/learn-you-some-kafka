@@ -2,7 +2,7 @@
 
 Atomic, bite-size, highly-focused hands-on exercises that teach how to work with [Kafka](https://kafka.apache.org/) with [Ruby](https://www.ruby-lang.org/) or [Clojure](https://clojure.org/).
 
-**CURRENT STATUS:** as of early January 2018, this is basically just a _plan_. We’re working on the exercises [now](https://github.com/FundingCircle/learn-you-some-kafka/projects)!
+**CURRENT STATUS:** as of early March 2018, this is _mostly_ just a _plan_. We’re working on the exercises [now](https://github.com/FundingCircle/learn-you-some-kafka/projects) and we have a few ready to go.
 
 ## Audience
 

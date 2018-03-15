@@ -2,6 +2,8 @@
 
 set -ex
 
+cp ../../lesson.rb ../../Dockerfile ./
+
 docker-compose build
 docker-compose run lesson
 

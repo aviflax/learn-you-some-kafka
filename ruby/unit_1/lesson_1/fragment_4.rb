@@ -30,4 +30,4 @@ DeliveryBoy.logger.level = Logger::FATAL
 # To start the next lesson, run this in your
 # shell:
 #
-# cd ../../lesson_2/ruby && ./start.sh`
+# cd ../lesson_2 && ./start.sh
