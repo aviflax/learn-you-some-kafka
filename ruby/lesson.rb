@@ -10,7 +10,7 @@ module InteractiveLesson
   end
 
   def self.prompt(str)
-    puts Rainbow("—— Press ⏎  to #{str} ——").background(:silver)
+    puts Rainbow("—— Press ⏎ to #{str} ——").background(:silver)
     STDIN.gets
   end
 
@@ -18,8 +18,8 @@ module InteractiveLesson
     print_colorized fragment
     prompt 'execute the above code and see the results'
     result = bind.eval fragment
-    p result
-    print "\n"
+    pp result
+    puts
     prompt 'continue' unless is_last
   end
 
