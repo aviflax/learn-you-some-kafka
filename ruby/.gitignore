@@ -1,2 +1,3 @@
-unit_*/**/lesson.rb
-unit_*/**/Dockerfile
+unit_*/lesson_*/lesson.rb
+unit_*/lesson_*/Dockerfile
+unit_*/lesson_*/Gemfile

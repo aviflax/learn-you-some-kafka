@@ -2,7 +2,7 @@
 
 set -ex
 
-cp ../../lesson.rb ../../Dockerfile ./
+cp ../../lesson.rb ../Dockerfile ../Gemfile ./
 
 ID=`docker build --quiet .`
 docker run -it --rm --network lesson1_default $ID

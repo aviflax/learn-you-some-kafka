@@ -1,3 +1,4 @@
 source 'https://rubygems.org'
 
 gem 'delivery_boy', '0.2.4'
+gem 'ruby-kafka', '0.5.3'
