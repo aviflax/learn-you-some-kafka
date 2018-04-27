@@ -54,6 +54,11 @@
 #
 # ## Next Lesson
 #
-# Coming soon in lesson 4: learn how to use
-# serialization and deserialization with Kafka so you can
-# easily produce and consume complex values.
+# Up next in lesson 4: learn how to use serialization and
+# deserialization with Kafka so you can easily produce and
+# consume complex values.
+#
+# To start the next lesson, run this in your
+# shell:
+#
+# cd ../lesson_4 && ./start.sh

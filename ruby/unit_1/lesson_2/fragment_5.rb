@@ -16,8 +16,8 @@
 #
 # ## Next Lesson
 #
-# Coming up next in lesson 3: learn how to use Consumer
-# Groups to scale an appl across multiple machines and
+# Up next in lesson 3: learn how to use Consumer Groups
+# to scale an application across multiple machines and
 # easily checkpoint progress so it can be resumed cleanly
 # at any time.
 #
