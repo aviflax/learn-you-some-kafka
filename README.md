@@ -1,8 +1,37 @@
 # Learn You Some Kafka!
 
-Atomic, bite-size, highly-focused hands-on exercises that teach how to work with [Kafka](https://kafka.apache.org/) with [Ruby](https://www.ruby-lang.org/) or [Clojure](https://clojure.org/).
+Atomic, bite-size, highly-focused hands-on exercises that teach how to work with [Kafka](https://kafka.apache.org/) using [Ruby](https://www.ruby-lang.org/) or [Clojure](https://clojure.org/).
 
-**CURRENT STATUS:** as of April 2018, this is a WIP. We’re working on the exercises [now](https://github.com/FundingCircle/learn-you-some-kafka/projects) and we have one unit (Unit 1, Ruby) ready to go.
+## Quick Start
+
+### Clojure
+
+Coming soon!
+
+### Ruby
+
+1. Ensure:
+   1. Docker is running
+   1. You’re connected to the Internet
+   1. Your Internet connection is fairly fast
+1. Clone this repo
+1. From the root of the repo: `cd ruby/unit_1/lesson_1/`
+1. `./start.sh`
+
+## Status
+
+This is a work in progress!
+
+This table shows which units are currently available for which programming system:
+
+| Unit | Clojure | Ruby |
+| ---- | ------- | ---- |
+| 1: Producing and Consuming  | | ✅ |
+| 2: Avro | | |
+| 3: Stream Processing | | |
+| 4: Kafka Connect | | |
+
+For more detailed status, please see [our projects](https://github.com/FundingCircle/learn-you-some-kafka/projects).
 
 ## Audience
 
