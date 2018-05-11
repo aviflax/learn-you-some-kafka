@@ -35,7 +35,7 @@ For more detailed status, please see [our projects](https://github.com/FundingCi
 
 ## Audience
 
-Engineers who are already proficient with Ruby and/or Clojure but may have zero knowledge of Kafka and streaming data.
+Engineers who are already proficient with Ruby and/or Clojure but may have little or no hands-on experience with Kafka.
 
 ## Goal
 
@@ -98,9 +98,11 @@ Each unit and lesson will be available for both Ruby and Clojure.
 1. What the hell is it even
 1. TBD
 
-## Who’s Behind This?
+## Contributors
 
+* [Alexander-Blair](https://github.com/Alexander-Blair)
 * [arsenerei](https://github.com/arsenerei)
 * [Avi Flax](https://github.com/aviflax)
+* [Diogo Scudelletti](https://github.com/scudelletti)
 * **You?**
   * If you’d like to get involved, please [post an issue](https://github.com/FundingCircle/learn-you-some-kafka/issues/new?labels=Question) asking how you can help!
