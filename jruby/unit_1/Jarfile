@@ -1,0 +1,5 @@
+jar 'org.apache.kafka:kafka-clients', '1.1.1'
+
+# The version of this dep needs to match the version of slf4j-api required by
+# kafka-clients.
+jar 'org.slf4j:slf4j-jdk14', '1.7.25'
