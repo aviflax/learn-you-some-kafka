@@ -2,7 +2,7 @@
 
 set -ex
 
-cp ../../lesson.rb ../Dockerfile ../Gemfile ./
+cp ../../../shared/* ../shared/* ./
 
 docker-compose build
 docker-compose run --rm lesson

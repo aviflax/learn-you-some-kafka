@@ -2,10 +2,10 @@
 
 set -ex
 
-cp ../../lesson.rb ../Dockerfile ../Gemfile ./
+cp ../../../shared/* ../shared/* ./
 
 ID=`docker build --quiet .`
-docker run -it --rm --network unit-1 $ID
+docker run -it --rm --network cruby-unit-1 $ID
 
 # We’ll again leave the network up — i.e. not run
 # `docker-compose down` — because some more of the

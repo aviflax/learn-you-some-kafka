@@ -4,19 +4,46 @@ Atomic, bite-size, highly-focused hands-on exercises that teach how to work with
 
 ## Quick Start
 
-### Clojure
+### Common
 
-Coming soon!
-
-### Ruby
+Do these steps first, regardless of which programming system and/or runtime you
+wish to use:
 
 1. Ensure:
    1. Docker is running
    1. You’re connected to the Internet
    1. Your Internet connection is fairly fast
 1. Clone this repo
-1. From the root of the repo: `cd ruby/unit_1/lesson_1/`
-1. `./start.sh`
+
+### Clojure
+
+Coming soon!
+
+### CRuby
+
+(CRuby is the reference implementation of [Ruby](https://www.ruby-lang.org/). (If
+you’re interested in the various names used for various implementations of Ruby,
+and why, see [this thorough
+article](http://engineering.appfolio.com/appfolio-engineering/2017/12/28/cruby-mri-jruby-rubyspec-rubinius-yarv-a-little-bit-of-ruby-naming).))
+
+From the root of the repo, run:
+
+```shell
+cd ruby/cruby/unit_1/lesson_1/
+./start.sh
+```
+
+### JRuby
+
+([JRuby](http://jruby.org/) is the predominant implementation of Ruby for the
+[JVM](https://en.wikipedia.org/wiki/Java_virtual_machine).)
+
+From the root of the repo, run:
+
+```shell
+cd ruby/jruby/unit_1/lesson_1/
+./start.sh
+```
 
 ## Status
 
@@ -24,12 +51,12 @@ This is a work in progress!
 
 This table shows which units are currently available for which programming system:
 
-| Unit | Clojure | Ruby |
-| ---- | ------- | ---- |
-| 1: Producing and Consuming  | | ✅ |
-| 2: Avro | | |
-| 3: Stream Processing | | |
-| 4: Kafka Connect | | |
+| Unit | Clojure | CRuby | JRuby |
+| ---- | ------- | ----- | ----- |
+| 1: Producing and Consuming  | | ✅ | Partial |
+| 2: Avro | | Partial | |
+| 3: Stream Processing | | | |
+| 4: Kafka Connect | | | &nbsp; |
 
 For more detailed status, please see [our projects](https://github.com/FundingCircle/learn-you-some-kafka/projects).
 
@@ -103,6 +130,8 @@ Each unit and lesson will be available for both Ruby and Clojure.
 * [Alexander-Blair](https://github.com/Alexander-Blair)
 * [arsenerei](https://github.com/arsenerei)
 * [Avi Flax](https://github.com/aviflax)
+* [Cássio Marques](https://github.com/cassiomarques)
 * [Diogo Scudelletti](https://github.com/scudelletti)
+* [Sasha Gerrand](https://github.com/sgerrand)
 * **You?**
   * If you’d like to get involved, please [post an issue](https://github.com/FundingCircle/learn-you-some-kafka/issues/new?labels=Question) asking how you can help!
