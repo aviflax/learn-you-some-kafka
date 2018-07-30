@@ -8,7 +8,7 @@ Metrics/AbcSize:
   Max: 16
 
 Metrics/LineLength:
-  Max: 60
+  Max: 80
 
 Style/AsciiComments:
   Enabled: false
