@@ -4,6 +4,6 @@ set -ex
 
 cp ../../../shared/* ../shared/* ./
 
-docker-compose build
-docker-compose run --rm lesson
-docker-compose down
+docker-compose -p jruby_unit_1 build
+docker-compose -p jruby_unit_1 run --rm lesson
+docker-compose -p jruby_unit_1 down
