@@ -1,7 +1,7 @@
-FROM 'jruby:9.2.0.0-jre-alpine'
+FROM jruby:9.2.0.0-jre-alpine
 
 # Deps of the lesson runner
-RUN gem install rainbow:3.0.0 rouge:3.1.0
+RUN gem install rainbow:3.0.0 rouge:3.1.1
 
 # Gem deps of the lesson itself
 COPY Gemfile ./

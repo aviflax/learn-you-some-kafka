@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
 
 gem 'avro', '1.8.2'
-gem 'delivery_boy', '0.2.4'
-gem 'ruby-kafka', '0.5.3'
+gem 'delivery_boy', '0.2.7'
+gem 'ruby-kafka', '0.6.7'
