@@ -2,8 +2,10 @@
 
 set -ex
 
-cp ../../../shared/* ../shared/* ./
+cp -p ../../../shared/* ../shared/* ./
 
 docker-compose -p jruby_unit_1 build
 docker-compose -p jruby_unit_1 run --rm lesson
-docker-compose -p jruby_unit_1 down
+
+# We leave the network up — i.e. we don’t run `docker-compose down` — because
+# the subsequent lessons need it in its current state.
