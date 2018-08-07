@@ -1,6 +1,6 @@
-*ruby/unit_*/lesson_*/docker-compose.yml
-*ruby/unit_*/lesson_*/lesson.rb
 *ruby/unit_*/lesson_*/Dockerfile
 *ruby/unit_*/lesson_*/Gemfile
 *ruby/unit_*/lesson_*/Jarfile
+*ruby/unit_*/lesson_*/docker-compose.yml
+*ruby/unit_*/lesson_*/lesson.rb
 *ruby/unit_*/lesson_*/stop.sh

@@ -19,24 +19,13 @@
 # now shut down the Kafka broker and its supporting
 # Zookeeper node like so:
 #
-# cd ../lesson_1/ && docker-compose down
+# ./stop.sh
 #
 #
 # ## Next Unit
 #
-# The next unit isn’t quite  ready yet, but it’ll be on
-# serializing and deserializing records with Avro. While
-# you’re eagerly awaiting that lesson, here are some good
-# resources for learning just what Avro _is_ even:
+# Unit 2 is on serializing and deserializing records with Avro.
 #
-# * The offical Avro docs:
-#    http://avro.apache.org/docs/current/
+# Get started on unit 2 like so:
 #
-# * Martin Kleppmann explains and compares how Avro,
-#   Protocol Buffers, and Thrift approach schema evolution
-#   in “Schema evolution in Avro, Protocol Buffers and
-#   Thrift”. Now, schema evolution is actually a fairly
-#   advanced topic, but Kleppmann’s introduction is
-#   actually really helpful, so it’s recommended:
-#    https://martin.kleppmann.com/2012/12/05/schema-evolution-in-avro-protocol-buffers-thrift.html
-#
+# cd ../../unit_2/lesson_1/ && ./start.sh
