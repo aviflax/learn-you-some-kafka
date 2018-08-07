@@ -13,6 +13,6 @@ timeout_millis = 1000
 # poll is usually called in a loop but in our case we only want to poll once:
 records = consumer.poll timeout_millis
 
-# Now let’s take a look at what we’ve collected:
+# Let’s take a look at what we’ve consumed:
 records.map(&:value)
        .map { |v| v[0, 20] }

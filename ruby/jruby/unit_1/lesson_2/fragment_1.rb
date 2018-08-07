@@ -6,7 +6,8 @@
 # should probably do so now, and then come back here.
 
 # We’ll use the canonical Java Kafka consumer that’s part of the Kafka project.
-# It’s already been installed via jbundler (see Dockerfile and Jarfile).
+# It’s already been installed via jbundler (see Dockerfile and Jarfile in
+# `../shared`).
 
 # Before we can instantiate a consumer, we have some setup busywork to get out
 # of the way.

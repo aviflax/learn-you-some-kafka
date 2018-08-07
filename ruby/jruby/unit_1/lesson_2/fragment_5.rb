@@ -11,14 +11,16 @@
 #
 # ## Next Lesson
 #
-# Up next in lesson 3, coming soon: learn how to use Consumer Groups
-# to scale an application across multiple machines and
-# easily checkpoint progress so it can be resumed cleanly
-# at any time.
+# Up next in lesson 3: learn how to use Consumer Groups to scale an application
+# across multiple machines and easily checkpoint progress so it can be resumed
+# cleanly at any time.
 #
-# Since the next lesson isn’t ready yet, you might want to shut down the Kafka
-# broker that’s running as a Docker container. To do so, run `./stop.sh`. Just
-# remember that if you do so and then subsequently want to run this lesson
-# again, you’ll need to run the first lesson again beforehand, because this
-# lesson uses the Docker containers started and the records produced in the
-# first lesson.
+# To start the next lesson, run this in your shell:
+#
+# cd ../lesson_3 && ./start.sh
+#
+# If you won’t be running lesson 3 right now, you might want to shut down the
+# Kafka broker that’s running as a Docker container. To do so, run `./stop.sh`.
+# Just remember that when you do want to run lesson 3, you’ll need to run all
+# preceding lessons beforehand, because lesson 3 depends on the Docker
+# containers started and the records produced in those preceding lessons.
