@@ -3,6 +3,8 @@ require 'rouge'
 
 # An interactive Ruby lesson.
 module InteractiveLesson
+  # NB: this is duplicated in test_unit.rb. We haven’t yet crossed the Rule of
+  # Three threshold, though, so this is fine.
   def self.print_colorized(fragment)
     formatter = Rouge::Formatters::Terminal256.new
     lexer = Rouge::Lexers::Ruby.new

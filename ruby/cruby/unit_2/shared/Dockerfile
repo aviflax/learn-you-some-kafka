@@ -8,5 +8,8 @@ COPY Gemfile ./
 RUN bundle install
 
 WORKDIR lesson
-COPY * ./
+
+# Must preserve directory structure for test script.
+COPY ./ ./
+
 ENTRYPOINT [ "ruby", "lesson.rb" ]
