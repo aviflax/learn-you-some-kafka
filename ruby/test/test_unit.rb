@@ -11,10 +11,9 @@ end
 
 def run_fragment(path, bind)
   code = IO.read path
-  puts Rainbow("\n###### About to test #{File.absolute_path(path)}:\n").color(:orange)
-  sleep 1 # simulate ugly bags of mostly water
+  puts Rainbow("\n###### About to test #{path}:\n").color(:orange)
   print_colorized code
-  sleep 1 # simulate ugly bags of mostly water
+  sleep 2 # Simulate ugly bags of mostly water.
   bind.eval code
   puts Rainbow("\n###### #{path} Succeeded!!").color(:green)
 end
@@ -27,11 +26,9 @@ def test_lesson(lesson_path)
   Dir.chdir(lesson_path) do
     Dir.glob('fragment_*.rb')
        .sort # It’s important to run the fragments in order.
+       .map { |path| File.absolute_path path }
        .each { |path| run_fragment path, bind }
   end
-
-  # if no exception was raised, we’re good.
-  nil
 rescue StandardError
   puts Rainbow("\n###### Exception raised!!").color(:red)
   raise
