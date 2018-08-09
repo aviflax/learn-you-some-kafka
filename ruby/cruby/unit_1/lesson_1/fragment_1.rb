@@ -8,3 +8,6 @@ strings = IO.readlines 'strings.txt', chomp: true
 # so you can have a sense of what’s in these strings:
 
 strings.map { |s| s[0..29] }
+
+# TEST_ASSERTIONS #
+raise 'AssertionError' unless strings.length == 3

@@ -43,3 +43,6 @@ client.close
 
 # Confirm we collected some records:
 records.count
+
+# TEST_ASSERTIONS #
+raise 'AssertionError' unless records.length == 3

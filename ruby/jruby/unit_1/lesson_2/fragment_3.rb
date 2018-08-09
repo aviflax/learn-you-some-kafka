@@ -16,3 +16,6 @@ records = consumer.poll timeout_millis
 # Let’s take a look at what we’ve consumed:
 records.map(&:value)
        .map { |v| v[0, 20] }
+
+# TEST_ASSERTIONS #
+raise 'AssertionError' unless records.count == 3
