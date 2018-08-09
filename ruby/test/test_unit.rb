@@ -26,7 +26,7 @@ def test_lesson(lesson_path)
   # them read data from local files.
   Dir.chdir(lesson_path) do
     Dir.glob('fragment_*.rb')
-       .sort
+       .sort # It’s important to run the fragments in order.
        .each { |path| run_fragment path, bind }
   end
 
@@ -42,4 +42,6 @@ end
 # exception bubbles up and we can handle it like any other.
 Thread.abort_on_exception = true
 
-Dir['lesson_?'].each { |lesson_path| test_lesson lesson_path }
+Dir['lesson_?']
+  .sort # It’s important to test the lessons in order.
+  .each { |lesson_path| test_lesson lesson_path }

@@ -22,11 +22,9 @@ do
   UNIT=${PWD##*/}
   PROJECT="${RUNTIME}_${UNIT}"
 
-  # Start Zookeeper and then Kafka, with delays after each for startup
-  docker-compose -p $PROJECT up -d zookeeper
-  sleep 2 # Wait for Zookeeper to come up before starting Kafka
+  # Start ZooKeeper and then Kafka
   docker-compose -p $PROJECT up -d kafka
-  sleep 10 # Wait for Kafka to come up before proceeding with the test
+  sleep 3 # Wait for Kafka to come up before proceeding with the test
 
   docker-compose -p $PROJECT build
   docker-compose -p $PROJECT run --rm --entrypoint "ruby test_unit.rb" lesson
