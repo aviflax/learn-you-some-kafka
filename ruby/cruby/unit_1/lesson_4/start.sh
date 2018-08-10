@@ -4,7 +4,10 @@ set -ex
 
 cp ../../../shared/* ../shared/* ./
 
-ID=`docker build --quiet .`
-docker run -it --rm --network cruby-unit-1 $ID
+RUNTIME=$(cd ../.. && echo ${PWD##*/})
+UNIT=$(cd .. && echo ${PWD##*/})
+PROJECT="${RUNTIME}_${UNIT}"
 
-docker-compose -p cruby_unit_1 down
+docker-compose -p $PROJECT build
+docker-compose -p $PROJECT run --rm lesson
+docker-compose -p $PROJECT down

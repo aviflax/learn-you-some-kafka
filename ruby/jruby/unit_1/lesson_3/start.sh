@@ -4,8 +4,12 @@ set -ex
 
 cp -p ../../../shared/* ../shared/* ./
 
-docker-compose -p jruby_unit_1 build
-docker-compose -p jruby_unit_1 run --rm lesson
+RUNTIME=$(cd ../.. && echo ${PWD##*/})
+UNIT=$(cd .. && echo ${PWD##*/})
+PROJECT="${RUNTIME}_${UNIT}"
+
+docker-compose -p $PROJECT build
+docker-compose -p $PROJECT run --rm lesson
 
 # Lesson 4 isn’t ready yet, so we could shut down the compose network. But I
 # find that it’s not uncommon to want to run through the lesson again right away

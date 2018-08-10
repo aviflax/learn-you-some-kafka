@@ -2,4 +2,8 @@
 
 set -ex
 
-docker-compose -p jruby_unit_1 down
+RUNTIME=$(cd ../.. && echo ${PWD##*/})
+UNIT=$(cd .. && echo ${PWD##*/})
+PROJECT="${RUNTIME}_${UNIT}"
+
+docker-compose -p $PROJECT down
