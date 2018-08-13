@@ -1,3 +1,5 @@
 #!/bin/sh
+
 set -ex
-docker-compose down
+PROJECT=`../../shared/project-name.sh`
+docker-compose -p $PROJECT down
