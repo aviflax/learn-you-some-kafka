@@ -22,7 +22,7 @@ fi
 cp ../../shared/lesson.rb ./
 
 docker-compose build
-docker-compose run --rm --entrypoint "ruby lesson.rb ${LESSON_DIR}" unit
+docker-compose run --rm unit ruby lesson.rb $LESSON_DIR
 
 # We leave the network up — i.e. not run
 # `docker-compose down` — because every lesson relies
