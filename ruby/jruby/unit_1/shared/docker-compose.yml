@@ -1,16 +1,16 @@
 version: '3.5'
 services:
-  lesson:
+  unit:
     build: .
     depends_on: ["kafka"]
     networks:
-      - lesson
+      - unit
   kafka:
     image: "confluentinc/cp-kafka:5.0.0"
     depends_on: ["zookeeper"]
     expose: ["9092"]
     networks:
-      - lesson
+      - unit
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
@@ -21,10 +21,10 @@ services:
     image: "confluentinc/cp-zookeeper:5.0.0"
     expose: ["2181"]
     networks:
-      - lesson
+      - unit
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
 networks:
-  lesson:
+  unit:
     name: jruby-unit-1
