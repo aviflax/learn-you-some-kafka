@@ -14,10 +14,10 @@
 #
 # To start the next lesson, run this in your shell:
 #
-# cd ../lesson_2 && ./start.sh
+# ./start.sh lesson_2
 #
 # If you won’t be running lesson 2 right now, you might want to shut down the
-# Kafka broker that’s running as a Docker container. To do so, run `./stop.sh`.
+# Kafka broker that’s running as a Docker container. To do so, run `./shutdown.sh`.
 # Just remember that when you do want to run lesson 2, you’ll need to run this
 # lesson again beforehand, because lesson 2 uses the Docker containers started
 # and the records produced in this lesson.
