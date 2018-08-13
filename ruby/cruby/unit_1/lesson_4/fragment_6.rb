@@ -15,11 +15,9 @@
 #
 # ## Cleanup
 #
-# If you’d like to minimize load on your system, you can
-# now shut down the Kafka broker and its supporting
-# Zookeeper node like so:
-#
-# ./stop.sh
+# We recommend you now shut down the Kafka broker and its
+# supporting Zookeeper node in order to minimize load on
+# your system by running ./shutdown.sh
 #
 #
 # ## Next Unit

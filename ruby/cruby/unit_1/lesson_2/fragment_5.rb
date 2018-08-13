@@ -24,4 +24,7 @@
 # To start the next lesson, run this in your
 # shell:
 #
-# cd ../lesson_3 && ./start.sh
+# ./start.sh lesson_3
+#
+# If you won’t be starting the next lesson now, you can
+# shut down the docker network with ./shutdown.sh

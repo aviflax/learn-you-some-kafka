@@ -16,10 +16,14 @@ module InteractiveLesson
     STDIN.gets
   end
 
-  def self.do_fragment(code, is_last, bind)
+  def self.do_fragment(code, dir, is_last, bind)
     print_colorized code
     prompt 'execute the above code and see the results'
-    result = bind.eval code
+
+    # It’s important to run the code in the dir that contains the source file,
+    # because some code fragments read local files.
+    result = Dir.chdir(dir) { bind.eval code }
+
     pp result
     puts
     prompt 'continue' unless is_last
@@ -34,26 +38,28 @@ module InteractiveLesson
     end
   end
 
-  def self.read_fragments
-    Dir.glob('fragment_*.rb')
+  def self.read_fragments(dir)
+    Dir.glob("#{dir}/fragment_*.rb")
        .sort # It’s very important to run the fragments in order.
        .map { |path| IO.read path }
        .map { |code| remove_test_assertions code }
   end
 
-  def self.start
+  def self.start(dir)
     print "\n"
 
-    code_fragments = read_fragments
+    code_fragments = read_fragments dir
 
     bind = binding
     code_fragments.each_with_index
                   .map { |code, i| [code, i == code_fragments.length - 1] }
-                  .each { |code, is_last| do_fragment code, is_last, bind }
+                  .each { |code, is_last| do_fragment code, dir, is_last, bind }
 
     congrats = '🎉 🎉 🎉  Congratulations, you’ve finished the lesson! 💪 💪 💪'
     puts Rainbow(congrats).background(:silver).bright
   end
 end
 
-InteractiveLesson.start
+dir = ARGV[0]&.strip
+abort "#{dir} does not appear to be a directory" unless Dir.exist? dir
+InteractiveLesson.start dir

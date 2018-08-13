@@ -29,8 +29,7 @@ article](http://engineering.appfolio.com/appfolio-engineering/2017/12/28/cruby-m
 From the root of the repo, run:
 
 ```shell
-cd ruby/cruby/unit_1/lesson_1/
-./start.sh
+cd ruby/cruby/unit_1 && ./start.sh
 ```
 
 ### JRuby
@@ -41,8 +40,7 @@ cd ruby/cruby/unit_1/lesson_1/
 From the root of the repo, run:
 
 ```shell
-cd ruby/jruby/unit_1/lesson_1/
-./start.sh
+cd ruby/jruby/unit_1 && ./start.sh
 ```
 
 ## Status
