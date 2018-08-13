@@ -18,7 +18,7 @@ for UNIT_PATH; do
   set -ex # Maybe this is inherited by the subshell?
 
   cp test_unit.rb "$UNIT_PATH/"
-  cd $UNIT_PATH
+  cd "$UNIT_PATH"
 
   # Start ZooKeeper and then the Kafka broker
   docker-compose up -d zookeeper
