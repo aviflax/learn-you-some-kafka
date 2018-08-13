@@ -28,3 +28,10 @@
 # Up next in lesson 2: learn how to deserialize Avro-encoded data consumed from
 # Kafka.
 #
+# To start the next lesson, run this in your
+# shell:
+#
+# ./start.sh lesson_2
+#
+# If you won’t be starting the next lesson now, you can
+# shut down the docker network with ./shutdown.sh

@@ -24,6 +24,6 @@
 #
 # Unit 2 is on serializing and deserializing records with Avro.
 #
-# Get started on unit 2 like so:
+# When you’re ready, you can start unit 2 by running:
 #
-# cd ../../unit_2/lesson_1/ && ./start.sh
+# cd ../unit_2 && ./start.sh

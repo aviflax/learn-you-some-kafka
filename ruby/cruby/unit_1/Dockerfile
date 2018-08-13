@@ -9,7 +9,5 @@ RUN bundle install
 
 WORKDIR /unit
 
-# Must preserve directory structure for test script.
+# Must preserve directory structure!
 COPY ./ ./
-
-ENTRYPOINT [ "ruby", "lesson.rb" ]
