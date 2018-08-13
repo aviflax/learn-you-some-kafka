@@ -31,18 +31,3 @@ for UNIT_PATH; do
   docker-compose down
   )
 done
-
-# NB: when adapting this to run in CI, skip the below git clean stuff
-
-echo 'A git clean is probably needed! It would remove these files:'
-git clean -n ..
-
-# prompt technique from https://stackoverflow.com/a/1885534/7012
-read -p "Would you like these files permanently deleted? y/n" -n 1 -r && echo
-
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-  git clean -f ..
-else
-  echo 'OK, the files have been left alone.'
-fi
