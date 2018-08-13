@@ -31,9 +31,11 @@ for UNIT_PATH; do
   UNIT=${PWD##*/}
   PROJECT="${RUNTIME}_${UNIT}"
 
-  # Start ZooKeeper and then Kafka
+  # Start ZooKeeper and then the Kafka broker
+  docker-compose -p $PROJECT up -d zookeeper
+  sleep 1 # Wait for ZooKeeper to come up before starting the Kafka broker
   docker-compose -p $PROJECT up -d kafka
-  sleep 3 # Wait for Kafka to come up before proceeding with the test
+  sleep 3 # Wait for the Kafka broker to come up before proceeding with the test
 
   docker-compose -p $PROJECT build
   docker-compose -p $PROJECT run --rm --entrypoint "ruby test_unit.rb" lesson
