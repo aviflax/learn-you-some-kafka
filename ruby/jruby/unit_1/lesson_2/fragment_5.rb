@@ -19,8 +19,10 @@
 #
 # ./start.sh lesson_3
 #
-# If you won’t be running lesson 3 right now, you might want to shut down the
-# Kafka broker that’s running as a Docker container. To do so, run `./shutdown.sh`.
-# Just remember that when you do want to run lesson 3, you’ll need to run all
-# preceding lessons beforehand, because lesson 3 depends on the Docker
-# containers started and the records produced in those preceding lessons.
+# If you won’t be running the next lesson right now, we recommend you shut down
+# the Kafka broker and ZooKeeper node that are running as Docker containers by
+# running ./shutdown.sh
+#
+# Note: If you do so, then when you do want to run the next lesson you’ll need
+# to start the unit over from lesson 1, as each lesson depends on the records
+# produced in the preceding lessons.

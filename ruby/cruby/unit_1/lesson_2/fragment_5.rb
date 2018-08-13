@@ -26,5 +26,10 @@
 #
 # ./start.sh lesson_3
 #
-# If you won’t be starting the next lesson now, you can
-# shut down the docker network with ./shutdown.sh
+# If you won’t be running the next lesson right now, we recommend you shut down
+# the Kafka broker and ZooKeeper node that are running as Docker containers by
+# running ./shutdown.sh
+#
+# Note: If you do so, then when you do want to run the next lesson you’ll need
+# to start the unit over from lesson 1, as each lesson depends on the records
+# produced in the preceding lessons.
