@@ -1,56 +1,48 @@
 version: 2
 jobs:
-  build:
+  test_ruby:
     docker:
-      # We need Docker Compose and Ruby (for Rubocop) and this image has both.
-      # NB: once we have units in programming languages other than Ruby, we may
-      # need to install multiple runtimes, linters, etc. TBD.
+      - image: docker/compose:1.22.0
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: Test Ruby code
+          working_directory: ruby/test
+          command: ./test_all_units.sh
+  lint_ruby_ruby:
+    docker:
       - image: circleci/ruby:2.5.1
     steps:
       - checkout
-
       - restore_cache:
-          keys:
-            - gems
-            - linters-and-their-deps
-
-      # Run the linters first because the tests can take a very long time and it
-      # seems a bit wasteful to use all those resources and wall-clock time just
-      # to run a bunch of tests and then fail the build due to lint failures.
+          key: rubocop-0.58.2
       - run:
-          name: Lint Ruby units
+          name: Install Rubocop
+          command: gem install --no-document rubocop:0.58.2
+      - save_cache:
+          key: rubocop-0.58.2
+          paths:
+            - /usr/local/bundle
+      - run:
+          name: Lint Ruby code
           working_directory: ruby
-          command: gem install --no-document rubocop && rubocop
-
+          command: rubocop
+  lint_ruby_shell:
+    docker:
+      - image: koalaman/shellcheck-alpine:stable
+    steps:
+      - checkout
       - run:
           name: Lint shell scripts used by Ruby units
           working_directory: ruby
-          command: |
-            if [ ! -f "/usr/bin/shellcheck" ]; then
-              # These steps from https://github.com/koalaman/shellcheck#installing-the-shellcheck-binary
-              sudo apt-get install -qqyy xz-utils
-              export scversion="stable"
-              wget "https://storage.googleapis.com/shellcheck/shellcheck-${scversion}.linux.x86_64.tar.xz"
-              tar --xz -xvf shellcheck-"${scversion}".linux.x86_64.tar.xz
-              sudo cp shellcheck-"${scversion}"/shellcheck /usr/bin/
-            fi
-            shellcheck **/*.sh
+          command: shellcheck **/*.sh
 
-      - save_cache:
-          key: gems
-          paths:
-            - /usr/local/bundle
-
-      - save_cache:
-          key: linters-and-their-deps
-          paths:
-            - /usr/bin/shellcheck
-            - /usr/bin/xz
-
-      - setup_remote_docker:
-          docker_layer_caching: true
-
-      - run:
-          name: Run Ruby Tests
-          working_directory: ruby/test
-          command: ./test_all_units.sh
+workflows:
+  version: 2
+  test_and_lint_ruby:
+    jobs:
+      - test_ruby
+      - lint_ruby_ruby
+      - lint_ruby_shell

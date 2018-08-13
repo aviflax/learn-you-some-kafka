@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [ $# -eq 0 ]; then
     echo 'You must specify at least one path to test.'
