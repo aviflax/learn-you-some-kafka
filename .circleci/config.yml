@@ -16,6 +16,12 @@ jobs:
       - image: circleci/ruby:2.5.1
     steps:
       - checkout
+      - run:
+          name: Change ownership of gem installation dir
+          # So the cache can be restored.
+          # See https://discuss.circleci.com/t/unable-to-restore-bundle-from-cache-using-circleci-ruby-docker-images/24249
+          #   and this post it refs: https://portal2portal.blogspot.com/2011/01/doh-error-tar-cannot-utime-operation.html
+          command: sudo chown -R circleci /usr/local/bundle
       - restore_cache:
           key: rubocop-0.58.2
       - run:
