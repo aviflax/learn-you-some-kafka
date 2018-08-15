@@ -24,7 +24,7 @@ cp ../shared/lesson.kts ./
 PROJECT=`../shared/project-name.sh`
 
 docker-compose -p $PROJECT build
-docker-compose -p $PROJECT run --rm unit lesson.kts $LESSON_DIR
+docker-compose -p $PROJECT run --rm -e PATH=/usr/local/sdkman/candidates/kscript/current/bin:/usr/local/sdkman/candidates/kotlin/current/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin unit kscript lesson.kts $LESSON_DIR
 
 # We leave the network up — i.e. not run
 # `docker-compose down` — because every lesson relies
