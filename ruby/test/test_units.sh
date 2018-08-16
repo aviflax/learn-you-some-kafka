@@ -33,6 +33,11 @@ for UNIT_PATH; do
 
   docker-compose -p "$PROJECT" build
   docker-compose -p "$PROJECT" run --rm unit ruby test_unit.rb
+
+  GREEN='\033[0;32m'
+  NC='\033[0m'
+  echo -e "${GREEN}Unit passed!${NC}"
+
   docker-compose -p "$PROJECT" down
   )
 done
