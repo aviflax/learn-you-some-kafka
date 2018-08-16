@@ -22,6 +22,9 @@ for UNIT_PATH; do
 
   PROJECT="$(../../shared/project-name.sh)_test"
 
+  # Shut down and remove all containers so we’re starting with a clean slate.
+  docker-compose -p "$PROJECT" down
+
   # Start ZooKeeper and then the Kafka broker
   docker-compose -p "$PROJECT" up -d zookeeper
   sleep 1 # Wait for ZooKeeper to come up before starting the Kafka broker
