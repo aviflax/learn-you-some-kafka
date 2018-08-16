@@ -18,4 +18,4 @@ records.map(&:value)
        .map { |v| v[0, 20] }
 
 # TEST_ASSERTIONS #
-raise 'AssertionError' unless records.count == 3
+raise "AssertionError: #{records.count} != 3" unless records.count == 3
