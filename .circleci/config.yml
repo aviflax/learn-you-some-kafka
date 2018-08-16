@@ -8,6 +8,11 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
+          # The test runner scripts require Bash and docker/compose doesn’t include it.
+          # You might think we should cache this but it’s fast so I’d rather not bother.
+          name: Install Bash
+          command: apk add --no-cache --no-progress bash
+      - run:
           name: Test Ruby code
           working_directory: ruby/test
           command: ./test_all_units.sh
