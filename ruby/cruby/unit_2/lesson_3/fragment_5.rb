@@ -10,6 +10,9 @@ records = client.fetch_messages topic: topic,
                                 partition: 0,
                                 offset: :earliest
 
+# And let’s take a peek at those values:
+records.map(&:value)
+
 # TEST_ASSERTIONS #
 raise 'AssertionError' unless records.length == 3
 raise 'AssertionError' unless records.all? { |r| r.value.instance_of? String }
