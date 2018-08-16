@@ -1,13 +1,19 @@
-# Now that we have some prepped hashes and a parsed schema, we can serialize the
-# hashes using the schema.
+# Now that we’ve serialized the hashes, we can produce them to a Kafka topic
+# like any other value.
 
-writer = Avro::IO::DatumWriter.new schema
+require 'delivery_boy'
+require 'logger'
 
-serialize = lambda do |val|
-  buf = StringIO.new
-  encoder = Avro::IO::BinaryEncoder.new buf
-  writer.write val, encoder
-  buf.string
+DeliveryBoy.configure do |config|
+  config.client_id = 'Unit 2, Lesson 1'
+  config.brokers = ['kafka:9092']
 end
 
-serialized_hashes = prepped_hashes.map { |ph| serialize[ph] }
+DeliveryBoy.logger.level = Logger::INFO
+
+serialized_hashes.each do |sh|
+  DeliveryBoy.deliver sh, key: nil, topic: 'timezones_avro'
+end
+
+# Let’s set the logger level to FATAL so as to suppress the disconnect message.
+DeliveryBoy.logger.level = Logger::FATAL

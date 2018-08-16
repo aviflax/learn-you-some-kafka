@@ -1,19 +1,25 @@
-# Now that we’ve serialized the hashes, we can produce them to a Kafka topic
-# like any other value.
-
-require 'delivery_boy'
-require 'logger'
-
-DeliveryBoy.configure do |config|
-  config.client_id = 'Unit 2, Lesson 1'
-  config.brokers = ['kafka:9092']
-end
-
-DeliveryBoy.logger.level = Logger::INFO
-
-serialized_hashes.each do |sh|
-  DeliveryBoy.deliver sh, key: nil, topic: 'timezones_avro'
-end
-
-# Let’s set the logger level to FATAL so as to suppress the disconnect message.
-DeliveryBoy.logger.level = Logger::FATAL
+# OK, that’s it for this lesson!
+#
+# ## Quick Review
+#
+# * We parsed an Avro schema, prepped some hashes to be compatible with that
+#   schema, serialized those hashes with that schema, and then produced those
+#   serialized hashes to a Kafka topic. Pretty rad!
+#
+# ## Links and Further Reading
+#
+# * How I Learned to Stop Worrying and Love the Schema:
+#     https://www.confluent.io/blog/how-i-learned-to-stop-worrying-and-love-the-schema-part-1/
+#
+# * Avro:
+#     http://avro.apache.org/
+#
+# * Avro docs:
+#    http://avro.apache.org/docs/current/
+#
+# * Martin Kleppmann explains and compares how Avro, Protocol Buffers, and
+#   Thrift approach schema evolution in “Schema evolution in Avro, Protocol
+#   Buffers and Thrift”. Schema evolution is a fairly advanced topic, but
+#   Kleppmann’s introduction is broadly helpful, so it’s recommended:
+#    https://martin.kleppmann.com/2012/12/05/schema-evolution-in-avro-protocol-buffers-thrift.html
+#

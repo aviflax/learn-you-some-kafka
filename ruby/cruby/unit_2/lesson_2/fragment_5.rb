@@ -1,17 +1,9 @@
-# OK, that’s it for this lesson!
+# ## Cleanup
 #
+# If you won’t be running the next lesson right now, we recommend you shut down
+# the Kafka broker, ZooKeeper node, and Schema Registry that are running in the
+# background as Docker containers by running ./shutdown.sh
 #
-# ## Quick Review
-#
-# * We consumed some Kafka records that had been serialized with Avro and then
-#   deserialized those records. Good stuff!
-#
-#
-# ## Next Lesson
-#
-# Up next in lesson 3, coming soon: learn how to produce and consume
-# Avro-encoded records with a Schema Registry.
-#
-# We recommend you now shut down the Kafka broker and its
-# supporting Zookeeper node in order to minimize load on
-# your system by running ./shutdown.sh
+# Note: If you do so, then when you do want to run the next lesson you’ll need
+# to start the unit over from lesson 1, as each lesson depends on the records
+# produced in the preceding lessons.

@@ -2,4 +2,4 @@
 
 require 'avro'
 
-schema = Avro::Schema.parse schema_source
+schema = Avro::Schema.parse schema_json
