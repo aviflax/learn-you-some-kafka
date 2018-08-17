@@ -38,7 +38,7 @@ for UNIT_PATH; do
   sleep 3 # Wait for the Kafka broker to come up before proceeding with the test
 
   docker-compose -p $PROJECT build
-  docker-compose -p $PROJECT run --rm --entrypoint "ruby test_unit.rb" lesson
+  docker-compose -p $PROJECT run --rm --entrypoint "ruby test_unit.rb" unit
   docker-compose -p $PROJECT down
   )
 done
