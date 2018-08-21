@@ -1,0 +1,54 @@
+version: 2
+jobs:
+  test_ruby:
+    docker:
+      - image: docker/compose:1.22.0
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: Test Ruby code
+          working_directory: ruby/test
+          command: ./test_all_units.sh
+  lint_ruby_ruby:
+    docker:
+      - image: circleci/ruby:2.5.1
+    steps:
+      - checkout
+      - run:
+          name: Change ownership of gem installation dir
+          # So the cache can be restored.
+          # See https://discuss.circleci.com/t/unable-to-restore-bundle-from-cache-using-circleci-ruby-docker-images/24249
+          #   and this post it refs: https://portal2portal.blogspot.com/2011/01/doh-error-tar-cannot-utime-operation.html
+          command: sudo chown -R circleci /usr/local/bundle
+      - restore_cache:
+          key: rubocop-0.58.2
+      - run:
+          name: Install Rubocop
+          command: gem install --no-document rubocop:0.58.2
+      - save_cache:
+          key: rubocop-0.58.2
+          paths:
+            - /usr/local/bundle
+      - run:
+          name: Lint Ruby code
+          working_directory: ruby
+          command: rubocop
+  lint_ruby_shell:
+    docker:
+      - image: koalaman/shellcheck-alpine:stable
+    steps:
+      - checkout
+      - run:
+          name: Lint shell scripts used by Ruby units
+          working_directory: ruby
+          command: shellcheck **/*.sh
+
+workflows:
+  version: 2
+  test_and_lint_ruby:
+    jobs:
+      - test_ruby
+      - lint_ruby_ruby
+      - lint_ruby_shell
