@@ -1,20 +1,14 @@
-# And that’s it for this lesson!
-#
-#
-# ## Quick Review
-#
-# * We’ve produced 3 records to Kafka, and confirmed that they actually made it
-# * Each record has a nil key and a string value
-# * Those string values are paragraphs of text without newlines
-#
-#
 # ## Next Lesson
 #
-# Up next in lesson 2: learn how to consume those records we just produced.
+# Up next in lesson 4: learn how to use serialization and deserialization with
+# Kafka so you can easily produce and consume complex values.
 #
 # To start the next lesson, run this in your shell:
 #
-# ./start.sh lesson_2
+# ./start.sh lesson_4
+#
+#
+# ## Cleanup
 #
 # If you won’t be running the next lesson right now, we recommend you shut down
 # the Kafka broker and ZooKeeper node that are running as Docker containers by

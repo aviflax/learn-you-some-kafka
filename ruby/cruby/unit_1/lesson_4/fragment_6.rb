@@ -15,17 +15,15 @@
 #
 # ## Cleanup
 #
-# If you’d like to minimize load on your system, you can
-# now shut down the Kafka broker and its supporting
-# Zookeeper node like so:
-#
-# ./stop.sh
+# We recommend you now shut down the Kafka broker and its
+# supporting Zookeeper node in order to minimize load on
+# your system by running ./shutdown.sh
 #
 #
 # ## Next Unit
 #
 # Unit 2 is on serializing and deserializing records with Avro.
 #
-# Get started on unit 2 like so:
+# When you’re ready, you can start unit 2 by running:
 #
-# cd ../../unit_2/lesson_1/ && ./start.sh
+# cd ../unit_2 && ./start.sh
