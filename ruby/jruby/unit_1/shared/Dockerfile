@@ -12,5 +12,8 @@ COPY Jarfile ./
 RUN jbundle install
 
 WORKDIR lesson
-COPY * ./
+
+# Must preserve directory structure for test script.
+COPY ./ ./
+
 ENTRYPOINT [ "jruby", "lesson.rb" ]

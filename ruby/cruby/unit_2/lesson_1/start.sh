@@ -4,8 +4,12 @@ set -ex
 
 cp ../../../shared/* ../shared/* ./
 
-docker-compose -p cruby_unit_2 build
-docker-compose -p cruby_unit_2 run --rm lesson
+RUNTIME=$(cd ../.. && echo ${PWD##*/})
+UNIT=$(cd .. && echo ${PWD##*/})
+PROJECT="${RUNTIME}_${UNIT}"
+
+docker-compose -p $PROJECT build
+docker-compose -p $PROJECT run --rm lesson
 
 # We’ll again leave the network up — i.e. not run
 # `docker-compose down` — because some more of the

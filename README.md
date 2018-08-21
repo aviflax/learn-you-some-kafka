@@ -125,6 +125,27 @@ Each unit and lesson will be available for both Ruby and Clojure.
 1. What the hell is it even
 1. TBD
 
+## Guidance to Those Wishing to Contribute Units/Lessons
+
+Coming soon!
+
+## Running the Tests
+
+### Ruby
+
+```shell
+cd ruby/test
+
+# Test all units:
+./test_all_units.sh
+
+# OR test a specific unit or units:
+./test_units.sh [path ...]
+
+# For example:
+./test_units.sh ../jruby/unit_1/
+```
+
 ## Contributors
 
 * [Alexander-Blair](https://github.com/Alexander-Blair)
