@@ -1,3 +1,3 @@
-#!/bin/sh
+#!/bin/bash
 
-./test_units.sh ../*ruby/unit*/
+./test_units.sh ../*ruby/unit*

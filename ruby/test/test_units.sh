@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ $# -eq 0 ]; then
     echo 'You must specify at least one path to test.'
@@ -20,14 +20,24 @@ for UNIT_PATH; do
   cp test_unit.rb "$UNIT_PATH/"
   cd "$UNIT_PATH"
 
+  PROJECT="$(../../shared/project-name.sh)_test"
+
+  # Shut down and remove all containers so we’re starting with a clean slate.
+  docker-compose -p "$PROJECT" down
+
   # Start ZooKeeper and then the Kafka broker
-  docker-compose up -d zookeeper
+  docker-compose -p "$PROJECT" up -d zookeeper
   sleep 1 # Wait for ZooKeeper to come up before starting the Kafka broker
-  docker-compose up -d kafka
+  docker-compose -p "$PROJECT" up -d kafka
   sleep 3 # Wait for the Kafka broker to come up before proceeding with the test
 
-  docker-compose build
-  docker-compose run --rm unit ruby test_unit.rb
-  docker-compose down
+  docker-compose -p "$PROJECT" build
+  docker-compose -p "$PROJECT" run --rm unit ruby test_unit.rb
+
+  GREEN='\033[0;32m'
+  NC='\033[0m'
+  echo -e "${GREEN}Unit passed!${NC}"
+
+  docker-compose -p "$PROJECT" down
   )
 done
