@@ -5,7 +5,7 @@
     {
       "name": "country_code",
       "type": "string",
-      "doc": "In the tz database this is named `cc`."
+      "doc": "In [the IANA Time Zone Database](https://www.iana.org/time-zones) this is named `cc`."
     },
     {
       "name": "latitude",
@@ -18,7 +18,7 @@
     {
       "name": "name",
       "type": "string",
-      "doc": "In the tz database this is named `tz`."
+      "doc": "In [the IANA Time Zone Database](https://www.iana.org/time-zones) this is named `tz`."
     },
     {
       "name": "offset",
