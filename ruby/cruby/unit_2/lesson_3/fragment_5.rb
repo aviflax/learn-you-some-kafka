@@ -1,4 +1,4 @@
-# Now let’s consume those serialized records from the topic:
+# Now let’s consume those serialized hashes from the topic, just as in lesson 2.
 
 require 'kafka'
 require 'logger'
@@ -6,11 +6,11 @@ require 'logger'
 logger = Logger.new STDOUT, level: :info
 client = Kafka::Client.new seed_brokers: ['kafka:9092'], logger: logger
 
-records = client.fetch_messages topic: 'timezones_avro',
+records = client.fetch_messages topic: topic,
                                 partition: 0,
                                 offset: :earliest
 
-# Now let’s take a peek at those values:
+# And let’s take a peek at those values:
 records.map(&:value)
 
 # TEST_ASSERTIONS #
