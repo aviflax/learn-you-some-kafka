@@ -11,21 +11,8 @@
 # but that’s just not working for some reason.
 Dir['/root/.m2/repository/**/*jar'].each { |f| require f }
 
-# “import” some Java classes so we can refer to them by their simple name
+# “import” some Java classes so we can refer to them by their simple names:
 java_import org.apache.kafka.clients.producer.KafkaProducer
 java_import org.apache.kafka.clients.producer.ProducerRecord
 java_import org.apache.kafka.clients.consumer.KafkaConsumer
 java_import org.apache.kafka.common.TopicPartition
-
-# Instantiate a producer just as we did in lesson 1
-serializer_class = 'org.apache.kafka.common.serialization.StringSerializer'
-producer = KafkaProducer.new 'bootstrap.servers' => 'kafka:9092',
-                             'value.serializer' => serializer_class,
-                             'key.serializer' => serializer_class
-
-# Instantiate a consumer just as we did in lesson 2
-deserializer_class = 'org.apache.kafka.common.serialization.StringDeserializer'
-consumer = KafkaConsumer.new 'bootstrap.servers' => 'kafka:9092',
-                             'value.deserializer' => deserializer_class,
-                             'key.deserializer' => deserializer_class,
-                             'auto.offset.reset' => 'earliest'

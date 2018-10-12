@@ -1,9 +1,19 @@
-# Get ready to consume the records:
-consumer.assign([TopicPartition.new(topic, 0)])
+# Let’s produce these values to our topic — same as in lesson 1, except this
+# time we’re producing hashes rather than strings. The producer should
+# automatically serialize our hashes into JSON strings using our bespoke
+# Serializer.
 
-# Now let’s consume for a few seconds:
-timeout_millis = 3000
-records = consumer.poll timeout_millis
+topic = 'json'
 
-# Let’s see what the records look like fresh out of the broker:
-records.map(&:value)
+callback = lambda do |record_meta, exception|
+  puts(if record_meta
+         "Send succeeded! Partition #{record_meta.partition}, offset " \
+         "#{record_meta.offset}"
+       else
+         "Send failed: #{exception}"
+       end)
+end
+
+hashes.each { |h| producer.send ProducerRecord.new(topic, h), callback }
+
+producer.flush

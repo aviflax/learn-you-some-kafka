@@ -1,10 +1,12 @@
-# As you can see, the record values are not structured data — they’re structured
-# data that’s been serialized into strings using some obscure serialization
-# format.
+# Get ready to consume the records:
+consumer.assign([TopicPartition.new(topic, 0)])
 
-# Now let’s deserialize the record values:
+# Now let’s consume for a few seconds:
+timeout_millis = 3000
+records = consumer.poll timeout_millis
+
+# Let’s see what the records look like fresh out of the consumer:
 deserialized = records.map(&:value)
-                      .map { |val| JSON.parse val, symbolize_names: true }
 
 # TEST_ASSERTIONS #
-raise 'AssertionError' unless deserialized == vals
+raise 'AssertionError' unless deserialized == hashes

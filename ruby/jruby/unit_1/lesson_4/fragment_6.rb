@@ -1,3 +1,7 @@
+# As you can see, the consumed record values have been automatically
+# deserialized via our bespoke Deserializer and are now identical to the values
+# that we produced. Not bad!
+#
 # That’s it for this lesson, and this unit!
 #
 #

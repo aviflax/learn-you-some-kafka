@@ -1,16 +1,22 @@
-# Let’s produce these values to our topic — same as in lesson 1, except this
-# time let’s produce hashes serialized as stringified JSON objects.
+# Instantiate our Producer and Consumer:
 
-require 'json'
+base_config = { 'bootstrap.servers' => 'kafka:9092' }
+serializer = Serializer.new
 
-topic = 'json'
+# We’re supplying our bespoke serializer to KafkaProducer’s constructor as both
+# the key serializer and the value serializer, even though we won’t be including
+# keys in the records in this lesson, simply because the constructor requires a
+# key serializer. The same applies to the KafkaConsumer constructor call below.
+producer = KafkaProducer.new base_config, serializer, serializer
 
-vals.map(&:to_json)
-    .each { |j| producer.send ProducerRecord.new(topic, j) }
+consumer_config = base_config.merge 'auto.offset.reset' => 'earliest'
+deserializer = Deserializer.new
+consumer = KafkaConsumer.new consumer_config, deserializer, deserializer
 
-# As you may know, #to_json returns a “stringified” JSON object — a string
-# representation of a JSON object. So the values we’re producing to the topic
-# *happen* to be human-readable strings, but that’s incidental to what we’re
-# doing here: producing complex values (hashes, in this case) to a Kafka topic
-# in a serialized form such that they can be deserialized by downstream
-# consumers.
+# Create some complex values to produce:
+
+hashes = IO.readlines('strings.txt', chomp: true)
+           .map do |s|
+             { fragment: s[0..9],
+               full_len: s.length }
+           end
