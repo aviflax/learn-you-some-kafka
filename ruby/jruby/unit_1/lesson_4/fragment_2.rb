@@ -8,7 +8,7 @@
 
 require 'json'
 
-class Serializer
+serializer = Class.new do
   # In JRuby, Java interfaces are mapped to Ruby modules, so mixing them in
   # is equivalent to the Java declaration that a class implements a given
   # interface. This isn’t actually necessary — the class will work just fine
@@ -20,13 +20,13 @@ class Serializer
   def serialize(_topic, data)
     data.to_json.to_java_bytes
   end
-end
+end.new
 
-class Deserializer
+deserializer = Class.new do
   include org.apache.kafka.common.serialization.Deserializer
 
   def deserialize(_topic, data)
     json_string = String.from_java_bytes data
     JSON.parse json_string, symbolize_names: true
   end
-end
+end.new

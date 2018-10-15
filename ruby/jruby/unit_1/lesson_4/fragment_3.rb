@@ -1,7 +1,6 @@
 # Instantiate our Producer and Consumer:
 
 base_config = { 'bootstrap.servers' => 'kafka:9092' }
-serializer = Serializer.new
 
 # We’re supplying our bespoke serializer to KafkaProducer’s constructor as both
 # the key serializer and the value serializer, even though we won’t be including
@@ -10,7 +9,6 @@ serializer = Serializer.new
 producer = KafkaProducer.new base_config, serializer, serializer
 
 consumer_config = base_config.merge 'auto.offset.reset' => 'earliest'
-deserializer = Deserializer.new
 consumer = KafkaConsumer.new consumer_config, deserializer, deserializer
 
 # Create some complex values to produce:
