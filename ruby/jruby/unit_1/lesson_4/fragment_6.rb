@@ -19,7 +19,7 @@
 # ## Cleanup
 #
 # We recommend you now shut down the Kafka broker and its supporting Zookeeper
-# node in order to minimize load on your system by running ./shutdown.sh
+# node in order to minimize load on your system by running ./shutdown
 #
 #
 # ## Next Unit — Coming Soon!

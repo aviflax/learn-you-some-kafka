@@ -2,7 +2,7 @@
 
 # Determine docker-compose project name.
 #
-# This is meant to be run from within one of the start.sh or shutdown.sh scripts
+# This is meant to be run from within one of the start or shutdown scripts
 # from within a unit dir.
 #
 # We need this because otherwise units of different programming systems would

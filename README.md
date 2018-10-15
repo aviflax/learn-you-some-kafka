@@ -29,7 +29,7 @@ article](http://engineering.appfolio.com/appfolio-engineering/2017/12/28/cruby-m
 From the root of the repo, run:
 
 ```shell
-cd ruby/cruby/unit_1 && ./start.sh
+cd ruby/cruby/unit_1 && ./start
 ```
 
 ### JRuby
@@ -40,7 +40,7 @@ cd ruby/cruby/unit_1 && ./start.sh
 From the root of the repo, run:
 
 ```shell
-cd ruby/jruby/unit_1 && ./start.sh
+cd ruby/jruby/unit_1 && ./start
 ```
 
 ## Status
@@ -89,7 +89,7 @@ Provide hands-on exercises that help these engineers learn how to work with Kafk
 * The recommended approach will be for people to clone the repo and then work through the exercises one at a time, in order
 * When someone opens the main code file for an exercise, the specific process/experience/workflow they follow will vary by programming system:
   * Ruby:
-    * They run the exercise in a terminal using `./start.sh` and they then enter into an interactive lesson which alternates between printing explanatory text and some code that will execute, and then running that code and displaying its results.
+    * They run the exercise in a terminal using `./start` and they then enter into an interactive lesson which alternates between printing explanatory text and some code that will execute, and then running that code and displaying its results.
   * Clojure:
     * They start reading from the top of the comment form at the top of the file, and evaluate each form inside the comment, as they proceed.
     * As they proceed, they’ll fluidly read about an operation, then evaluate and see the results of that operation.
@@ -135,13 +135,13 @@ Coming soon!
 cd ruby/test
 
 # Test all units:
-./test_all_units.sh
+./test_all_units
 
 # OR test a specific unit or units:
-./test_units.sh [path ...]
+./test_units [path ...]
 
 # For example:
-./test_units.sh ../jruby/unit_1/
+./test_units ../jruby/unit_1/
 ```
 
 ## Contributors

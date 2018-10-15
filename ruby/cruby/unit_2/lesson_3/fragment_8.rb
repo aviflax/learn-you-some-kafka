@@ -1,7 +1,7 @@
 # ## Cleanup
 #
 # We recommend you now shut down the Kafka broker, Zookeeper node, and schema
-# registry in order to minimize load on your system by running ./shutdown.sh
+# registry in order to minimize load on your system by running ./shutdown
 #
 # ## Next Unit
 #
