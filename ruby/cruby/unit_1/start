@@ -21,10 +21,10 @@ fi
 # copies are invisible to git as specified in ../../.gitignore.
 cp ../../shared/lesson.rb ./
 
-PROJECT=`../../shared/project-name`
+PROJECT=$(../../shared/project-name)
 
-docker-compose -p $PROJECT build
-docker-compose -p $PROJECT run --rm unit ruby lesson.rb $LESSON_DIR
+docker-compose -p "$PROJECT" build
+docker-compose -p "$PROJECT" run --rm unit ruby lesson.rb "$LESSON_DIR"
 
 # We leave the network up — i.e. not run
 # `docker-compose down` — because every lesson relies
