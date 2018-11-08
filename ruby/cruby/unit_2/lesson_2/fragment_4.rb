@@ -12,4 +12,4 @@
 #
 # To start the next lesson, run this in your shell:
 #
-# ./start.sh lesson_3
+# ./start lesson_3

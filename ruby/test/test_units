@@ -20,7 +20,7 @@ for UNIT_PATH; do
   cp test_unit.rb "$UNIT_PATH/"
   cd "$UNIT_PATH"
 
-  PROJECT="$(../../shared/project-name.sh)_test"
+  PROJECT="$(../../shared/project-name)_test"
 
   # Shut down and remove all containers so we’re starting with a clean slate.
   docker-compose -p "$PROJECT" down

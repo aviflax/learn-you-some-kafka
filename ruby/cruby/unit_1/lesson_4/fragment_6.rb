@@ -17,7 +17,7 @@
 #
 # We recommend you now shut down the Kafka broker and its
 # supporting Zookeeper node in order to minimize load on
-# your system by running ./shutdown.sh
+# your system by running ./shutdown
 #
 #
 # ## Next Unit
@@ -26,4 +26,4 @@
 #
 # When you’re ready, you can start unit 2 by running:
 #
-# cd ../unit_2 && ./start.sh
+# cd ../unit_2 && ./start

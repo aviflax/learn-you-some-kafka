@@ -15,7 +15,7 @@ jobs:
       - run:
           name: Test Ruby code
           working_directory: ruby/test
-          command: ./test_all_units.sh
+          command: ./test_all_units
   lint_ruby_ruby:
     docker:
       - image: circleci/ruby:2.5.1
@@ -48,7 +48,7 @@ jobs:
       - run:
           name: Lint shell scripts used by Ruby units
           working_directory: ruby
-          command: shellcheck **/*.sh
+          command: find . -perm +111 -type f -exec shellcheck {} +
 
 workflows:
   version: 2

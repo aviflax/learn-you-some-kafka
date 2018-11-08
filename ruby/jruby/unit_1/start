@@ -21,12 +21,12 @@ fi
 # copies are invisible to git as specified in ../../.gitignore.
 cp ../../shared/lesson.rb ./
 
-PROJECT=`../../shared/project-name.sh`
+PROJECT=$(../../shared/project-name)
 
-docker-compose -p $PROJECT build
-docker-compose -p $PROJECT run --rm unit ruby lesson.rb $LESSON_DIR
+docker-compose -p "$PROJECT" build
+docker-compose -p "$PROJECT" run --rm unit jruby --dev lesson.rb "$LESSON_DIR"
 
 # We leave the network up — i.e. not run
 # `docker-compose down` — because every lesson relies
 # on the state of the network from the prior lesson(s).
-# Users can run ./shutdown.sh if they want to stop the network.
+# Users can run ./shutdown if they want to stop the network.
