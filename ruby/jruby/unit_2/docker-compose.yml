@@ -1,0 +1,32 @@
+version: '3.5'
+services:
+  unit:
+    build: .
+    depends_on: ["kafka"]
+    networks:
+      - unit
+  kafka:
+    # Before upgrading the broker version, see the note at the top of the Jarfile on compatibility
+    # between the broker and the clients.
+    image: "confluentinc/cp-kafka:5.0.0"
+    depends_on: ["zookeeper"]
+    expose: ["9092"]
+    networks:
+      - unit
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
+      KAFKA_ADVERTISED_LISTENERS: 'PLAINTEXT://kafka:9092'
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      CONFLUENT_SUPPORT_METRICS_ENABLE: 'false'
+  zookeeper:
+    image: "confluentinc/cp-zookeeper:5.0.0"
+    expose: ["2181"]
+    networks:
+      - unit
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+networks:
+  unit:
+    name: jruby-unit-1

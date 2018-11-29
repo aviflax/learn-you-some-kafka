@@ -52,7 +52,7 @@ This table shows which units are currently available for which programming syste
 | Unit | Clojure | CRuby | JRuby |
 | ---- | ------- | ----- | ----- |
 | 1: Producing and Consuming  | | ✅ | ✅ |
-| 2: Avro | | ✅ | |
+| 2: Avro | | ✅ | _partial_ |
 | 3: Stream Processing | | | |
 | 4: Kafka Connect | | | &nbsp; |
 

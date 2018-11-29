@@ -1,0 +1,13 @@
+# The version of this dep should correspond to that of the confluentinc/cp-kafka
+# images used in our docker-compose.yml file. Unfortunately it’s not a direct
+# correspondence, e.g. the Confluent Platform version that is based on Kafka 2.0
+# is 5.0. Kafka 2.1 has recently been released, but the corresponding version of
+# the Confluent Platform has not yet been released. When it is, I don’t know
+# whether it’ll be versioned as 5.1 or 6.0. The suspense is killing me!
+# You can find a table that shows the compatible versions here:
+#   https://docs.confluent.io/current/installation/versions-interoperability.html#cp-and-apache-kafka-compatibility
+jar 'org.apache.kafka:kafka-clients', '2.0.1'
+
+# The version of this dep needs to match the version of slf4j-api required by
+# kafka-clients.
+jar 'org.slf4j:slf4j-jdk14', '1.7.25'
