@@ -6,6 +6,8 @@ services:
     networks:
       - unit
   kafka:
+    # Before upgrading the broker version, see the note at the top of the Jarfile on compatibility
+    # between the broker and the clients.
     image: "confluentinc/cp-kafka:5.0.0"
     depends_on: ["zookeeper"]
     expose: ["9092"]
