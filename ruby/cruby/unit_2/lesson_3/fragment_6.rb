@@ -12,6 +12,9 @@ avro = AvroTurf::Messaging.new registry_url: 'http://schema-registry:8081/',
 # cache, it’s just used; if not, the object retrieves the schema from the
 # registry via its ID, saves it in its in-memory cache, and then uses it.
 
-records.map(&:value)
-       .map { |rv| avro.decode rv }
-       .map { |h| h.transform_keys(&:to_sym) }
+deserialized = records.map(&:value)
+                      .map { |rv| avro.decode rv }
+                      .map { |h| h.transform_keys(&:to_sym) }
+
+# TEST_ASSERTIONS #
+raise 'AssertionError' unless deserialized == hashes

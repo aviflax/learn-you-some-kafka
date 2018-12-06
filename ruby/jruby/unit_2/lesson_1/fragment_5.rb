@@ -14,7 +14,8 @@ serializer = Class.new do
   end
 
   def serialize(_topic, data)
-    # No idea why, but sometimes this method is called with data being nil.
+    # Kafka record keys are allowed to be null/nil; if so they’re still provided
+    # to the serializer so the app can serialize null/nil however it wants.
     return nil if data.nil?
 
     # Before serializing the hash we’ll transform the keys from symbols to
