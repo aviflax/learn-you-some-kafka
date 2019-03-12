@@ -2,9 +2,18 @@ version: '3.5'
 services:
   unit:
     build: .
-    depends_on: ["kafka"]
+    depends_on: [kafka, schema-registry]
     networks:
       - unit
+  schema-registry:
+    image: 'confluentinc/cp-schema-registry:5.0.0'
+    depends_on: [kafka]
+    expose: [8081]
+    networks: [unit]
+    environment:
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: 'PLAINTEXT://kafka:9092'
+      SCHEMA_REGISTRY_HOST_NAME: 'schema-registry'
+      CONFLUENT_SUPPORT_METRICS_ENABLE: 'false'
   kafka:
     # Before upgrading the broker version, see the note at the top of the Jarfile on compatibility
     # between the broker and the clients.
@@ -29,4 +38,4 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
 networks:
   unit:
-    name: jruby-unit-1
+    name: jruby-unit-2
